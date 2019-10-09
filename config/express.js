@@ -9,7 +9,7 @@ require('dotenv').config()
 
 app.use(express.static('./public'));
 
-app.use( cors() )
+app.use( cors({origin: process.env.frontend}) )
 
 app.set("view engine", "ejs");
 app.set('views', './views');
