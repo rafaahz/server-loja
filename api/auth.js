@@ -43,7 +43,7 @@ api.verificaToken = function(req, res, next){
 
     jwt.verify(token, process.env.JWT_TOKEN, function(err, decoded){
         if(err){ 
-            res.status(401).send('FAÇA LOGIN PARA ACESSAR INFORMAÇÕES');
+            res.status(401).send('FAÇA LOGIN PARA ACESSAR INFORMAÇÕES DO SERVIDOR');
         } else {
             next();
         }
@@ -58,7 +58,7 @@ api.valido = function(req, res, next){
 
     jwt.verify(token, process.env.JWT_TOKEN, function(err, decoded){
         if(err){ 
-            res.status(401).json({token: false});
+            res.status(401).send('FAÇA LOGIN PARA ACESSAR INFORMAÇÕES DO SERVIDOR');
         } else {
 
             var id = decoded.id;
