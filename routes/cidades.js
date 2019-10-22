@@ -2,10 +2,12 @@
 module.exports = function(app){	
 	
 	app.get("/cidades", function(req, res){
-		let conexao = new app.infra.TransportadorasDAO( app.infra.connectionFactory() );
+		let connection = app.infra.connectionFactory();
+		let conexao = new app.infra.TransportadorasDAO( connection );
 		conexao.listaTudo( (lista)=>{
 			res.status(200).json(lista);
 		} )
+		connection.end();
 	})
 
 	app.post("/item", async function(req, res){
