@@ -35,6 +35,8 @@ api.autentica = async function(req, res){
 
     });
 
+    connection.end();
+
 }
 
 
@@ -73,6 +75,7 @@ api.valido = function(req, res, next){
 
             })
 
+            connection.end();
         }
 
     })
